@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+  <title>Parla con il Profeta</title>
+  
+  <!-- Manifest per la PWA -->
+  <link rel="manifest" href="manifest.json" />
+  
+  <!-- Colore barra indirizzi su mobile (facoltativo) -->
+  <meta name="theme-color" content="#ffffff" />
+  
+  <!-- Stili di base -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Parla con il Profeta</h1>
+  
+  <!-- Contenitore frase -->
+  <div id="phrase-container">
+    <p id="random-phrase">Premi il bottone per ottenere una frase!</p>
+  </div>
+  
+  <!-- Bottone -->
+  <button id="generate-btn">Genera Frase</button>
+  
+  <!-- Script principale -->
+  <script src="script.js"></script>
+  
+  <!-- Registrazione Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('Service Worker registrato:', reg))
+          .catch(err => console.log('Errore registrazione SW:', err));
+      });
+    }
+  </script>
+</body>
+</html>
